@@ -1,0 +1,29 @@
+{
+    "workbench.iconTheme": "material-icon-theme",
+    "sync.gist": "387b7b9b41a5aa8c94ee4eede2f41236",
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "python.jediEnabled": false,
+    "sync.autoDownload": true,
+    "sync.autoUpload": true,
+    "sync.quietSync": true,
+    "jshint.options": {
+        "esversion": 6
+    },
+    "jshint.enable": false,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Gruvbox Material Dark",
+    "explorer.compactFolders": false,
+    "explorer.confirmDelete": false,
+    "html.autoClosingTags": true,
+    "editor.snippetSuggestions": "bottom",
+    "javascript.suggest.autoImports":true,
+    "javascript.autoClosingTags":true,
+    "javascript.suggestionActions.enabled": true,
+    "javascript.updateImportsOnFileMove.enabled": "prompt",
+    "typescript.suggest.autoImports":true,
+    "typescript.autoClosingTags":true,
+    "typescript.suggestionActions.enabled": true,
+    "typescript.updateImportsOnFileMove.enabled": "prompt",
+    "editor.colorDecorators": true
+}
