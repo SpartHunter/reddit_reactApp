@@ -18,7 +18,6 @@ function Header({logo}){
 
 const HeaderNav = Styled.div `
     height: 50px;
-    padding: 5px;
     display:flex;
     flex-direction: row;
     justify-content: center;
@@ -29,6 +28,8 @@ const NavContent = Styled.div `
     display:flex;
     flex-direction: row;
     justify-content: space-between;
+    position: fixed;
+    background-color: white;
 `;
 
 const NavLogo = Styled.img `

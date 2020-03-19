@@ -9,8 +9,8 @@ function LogIn(){
             <LogView> </LogView>
             <LogForm>
                 <LogH1>SIGN IN</LogH1>
-                <LogInput name="username" placeholder="USERNAME"/>
-                <LogInput name="password" placeholder="PASSWORD"/>
+                <LogInput type="text" name="username" placeholder="USERNAME"/>
+                <LogInput type="password" name="password" placeholder="PASSWORD"/>
                 <LogButton type="submit">SIGN IN</LogButton>
             </LogForm>
             <LogForget>

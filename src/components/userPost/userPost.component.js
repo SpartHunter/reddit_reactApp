@@ -34,7 +34,7 @@ function UserPost(){
                     </p>
                 </ContentText>
                 <ContentImage>
-                    <img src={TestImg} alt="test"/>
+                    <ImgLink src={TestImg} alt="test"/>
                 </ContentImage>
                 <ContentVideo>
                     <video controls muted >
@@ -201,6 +201,10 @@ const TextH6 = Styled.h6`
     border: none;
     font-size: 10px;
     background-color: transparent;
+`;
+
+const ImgLink = Styled.img`
+    width:100%
 `;
 
 export default UserPost;

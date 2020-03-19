@@ -35,6 +35,7 @@ const PubView = Styled.div`
     padding: 15px;
     padding-top: 2px;
     background-color: #dae0e6;
+    justify-content: center;
 `;
 
 const PostPubView = Styled.div`
