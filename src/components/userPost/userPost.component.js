@@ -37,9 +37,9 @@ function UserPost(){
                     <ImgLink src={TestImg} alt="test"/>
                 </ContentImage>
                 <ContentVideo>
-                    <video controls muted >
+                    <Video controls muted >
                         <source src={VideoTest} type="video/mp4"/>
-                    </video>
+                    </Video>
                 </ContentVideo>
             </ContentPost>
             <BottomPost>
@@ -204,6 +204,10 @@ const TextH6 = Styled.h6`
 `;
 
 const ImgLink = Styled.img`
+    width:100%
+`;
+
+const Video = Styled.video`
     width:100%
 `;
 

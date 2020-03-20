@@ -1,7 +1,8 @@
 import React, {} from 'react';
 import Styled from 'styled-components';
 
-function Profil(){
+function Profil({newPost, funcOpenPost}){
+
 
     return (
             <ProfilNav>
@@ -12,7 +13,7 @@ function Profil(){
                 </Content>
                 <ProfilDrop>
                     <DropLink href="#">Profil</DropLink>
-                    <DropLink href="#">Post</DropLink>
+                    <DropLink value={newPost} onClick={funcOpenPost} href="#">Post</DropLink>
                     <DropLink href="#">Login</DropLink>
                     <DropLink href="#">Logout</DropLink>
                 </ProfilDrop>

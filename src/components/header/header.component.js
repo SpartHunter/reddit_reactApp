@@ -4,13 +4,13 @@ import Styled from 'styled-components';
 import Search from '../search/search.component';
 import Profil from '../profil/profil.component'
 
-function Header({logo}){
+function Header({newPost, funcOpenPost, logo}){
     return (
         <HeaderNav>
             <NavContent>
                 <NavLogo src={logo} alt="logo"/>
                 <Search/>
-                <Profil/>
+                <Profil newPost={newPost} funcOpenPost={funcOpenPost}/>
             </NavContent>
         </HeaderNav>
     );

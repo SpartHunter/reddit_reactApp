@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Styled from 'styled-components';
 import PostPub from "../postPub/postPub.component";
 import PubPoster from '../../images/pubs/pub2.jpeg'

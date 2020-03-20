@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
 import Styled from 'styled-components';
 
-function AddPost(){
+function AddPost({newPost, funcOpenPost}){
     let listTypePost = ["Text", "Image", "Video"];
+
     const [typePost, setTypePost] = useState("Text");
     const [textPostArea, setTextPostArea] = useState("");
     const [resumePostArea, setResumePostArea] = useState("");
+    const [closeBtn, setCloseBtn] = useState("none");
 
     let typePostSelected = (event) => {
         setTypePost(event.target.value);
@@ -19,9 +21,23 @@ function AddPost(){
         setResumePostArea(event.target.value);
     };
 
+    let closeBtnAct = (event) =>{
+        console.log("oyé closeBtnAct");
+       if(event.target.value === "none"){
+           console.log("oyé closeBtnAct if");
+           setCloseBtn("block");
+           funcOpenPost();
+
+       }else{
+           console.log("oyé closeBtnAct else");
+           setCloseBtn("none");
+           funcOpenPost();
+       }
+    };
+
     return (
-        <AddPostContent>
-            <ButtonClose>
+        <AddPostContent value={newPost}>
+            <ButtonClose classeName="closedPost" value={closeBtn} onClick={closeBtnAct} onChange={closeBtnAct}>
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 294.843 294.843" height="20px" fill="#ff4500">
                     <g>
                         <path d="M147.421,0C66.133,0,0,66.133,0,147.421s66.133,147.421,147.421,147.421c38.287,0,74.567-14.609,102.159-41.136   c2.389-2.296,2.464-6.095,0.167-8.483c-2.295-2.388-6.093-2.464-8.483-0.167c-25.345,24.367-58.672,37.786-93.842,37.786   C72.75,282.843,12,222.093,12,147.421S72.75,12,147.421,12s135.421,60.75,135.421,135.421c0,16.842-3.052,33.273-9.071,48.835   c-1.195,3.091,0.341,6.565,3.432,7.761c3.092,1.193,6.565-0.341,7.761-3.432c6.555-16.949,9.879-34.836,9.879-53.165   C294.843,66.133,228.71,0,147.421,0z"/>
@@ -62,11 +78,20 @@ function AddPost(){
     );
 }
 
-const AddPostContent = Styled.div`
-    background-color: wheat;
-    border-radius: 34px;
-    padding: 10px;
-    margin: 8px;
+const AddPostContent = Styled.div(props => ({
+    backgroundColor: "wheat",
+    borderRadius: "34px",
+    padding: "10px",
+    margin: "8px",
+    display: props.value
+}));
+
+const ButtonClose = Styled.button`
+    background-color: transparent;
+    border: none;
+    align-self: center;
+    align-content: center;
+    display: grid;
 `;
 
 const TextH = Styled.h1`
@@ -151,14 +176,6 @@ const BoxOption = Styled.option`
 
 const ButtonSubmit = Styled.button`
     text-align: center;
-`;
-
-const ButtonClose = Styled.button`
-    background-color: transparent;
-    border: none;
-    align-self: center;
-    align-content: center;
-    display: grid;
 `;
 
 
