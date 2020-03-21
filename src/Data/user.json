@@ -2,29 +2,8 @@
   {
     "firstName": "Albert",
     "lastName": "Nordf",
-    "pseudo": "Nalbf",
+    "pseudo": "albert",
     "password": "0000",
     "jointGroup": ["InfoNews","PeopleFake", "kellyDance"]
-  },
-  {
-    "firstName": "Fordfug",
-    "lastName": "Larry",
-    "pseudo": "Lar's",
-    "password": "0000",
-    "jointGroup": ["FakeToFake","MasterWood's"]
-  },
-  {
-    "firstName": "Papjik",
-    "lastName": "Bob",
-    "pseudo": "Pap",
-    "password": "0000",
-    "jointGroup": []
-  },
-  {
-    "firstName": "Youki",
-    "lastName": "Nakamura",
-    "pseudo": "Nakyou",
-    "password": "0000",
-    "jointGroup": ["CornJunk"]
   }
 ]

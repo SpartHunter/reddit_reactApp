@@ -1,17 +1,38 @@
-import React, {} from 'react';
+import React, {useState} from 'react';
 import Styled from 'styled-components';
 import ViewBackground from '../../images/login.jpg'
 
-function LogIn(){
+function LogIn(props){
+    console.log(props);
+    const[username, setUsername] = useState("");
+    const[password, setPassword] = useState("");
+
+    let setEnteredUsername = (event) => {
+        setUsername(event.target.value);
+    };
+
+    let setEnteredPassword = (event) => {
+        setPassword(event.target.value);
+    };
+
+    let setConnect = () => {
+      if(!props.loginStatus){
+          console.log("if value login status " + props.loginStatus);
+          props.funcStatusLogin(username, password);
+      }else{
+          console.log("else value login status " + props.loginStatus);
+          console.warn("user already connected !");
+      }
+    };
 
     return (
         <LogContent>
             <LogView> </LogView>
             <LogForm>
                 <LogH1>SIGN IN</LogH1>
-                <LogInput type="text" name="username" placeholder="USERNAME"/>
-                <LogInput type="password" name="password" placeholder="PASSWORD"/>
-                <LogButton type="submit">SIGN IN</LogButton>
+                <LogInput value={username} onChange={setEnteredUsername} type="text" name="username" placeholder="USERNAME"/>
+                <LogInput value={password} onChange={setEnteredPassword} type="password" name="password" placeholder="PASSWORD"/>
+                <LogButton onClick={setConnect} type="submit">SIGN IN</LogButton>
             </LogForm>
             <LogForget>
                 <LogLink href="#">Forgot Username</LogLink>
