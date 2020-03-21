@@ -1,5 +1,6 @@
 import React, {} from 'react';
 import Styled from 'styled-components';
+import {Link} from "react-router-dom";
 
 function Profil({newPost, funcOpenPost}){
 
@@ -14,7 +15,7 @@ function Profil({newPost, funcOpenPost}){
                 <ProfilDrop>
                     <DropLink href="#">Profil</DropLink>
                     <DropLink value={newPost} onClick={funcOpenPost} href="#">Post</DropLink>
-                    <DropLink href="#">Login</DropLink>
+                    <DropLink href="/login">Login</DropLink>
                     <DropLink href="#">Logout</DropLink>
                 </ProfilDrop>
             </ProfilNav>

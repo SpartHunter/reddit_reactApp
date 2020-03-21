@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {BrowserRouter, Route} from 'react-router-dom';
 import Styled from 'styled-components';
 import Header from './components/header/header.component';
 import Logo from './images/reddit.png';
@@ -22,12 +23,19 @@ function App() {
 
     return (
         <AppComponent className="App">
-            <Header newPost={openAddPost} funcOpenPost={changeOpenPost} logo={Logo}/>
-            <AddPost newPost={openAddPost} funcOpenPost={changeOpenPost}/>
-            <Pubs/>
-            <FilterBar/>
-            <UserPost/>
-            <LogIn/>
+            <BrowserRouter>
+                <Route exact path="/">
+                    <Header newPost={openAddPost} funcOpenPost={changeOpenPost} logo={Logo}/>
+                    <AddPost newPost={openAddPost} funcOpenPost={changeOpenPost}/>
+                    <Pubs/>
+                    <FilterBar/>
+                    <UserPost/>
+                </Route>
+
+                <Route exact path="/login">
+                    <LogIn/>
+                </Route>
+            </BrowserRouter>
         </AppComponent>
     );
 }
