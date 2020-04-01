@@ -2,7 +2,7 @@ import React, {} from 'react';
 import Styled from 'styled-components';
 import ProfilImg from '../../images/profil.jpg'
 
-function User(){
+function User({groupPost, userConnected}){
 
     return (
         <UserContent>
@@ -32,7 +32,7 @@ const UserImg = Styled.img`
 
 const UserH4 = Styled.h4`
     margin: 0;
-    font-size: 12px;
+    font-size: 11px;
 `;
 
 

@@ -4,5 +4,8 @@
     <content url="file://$MODULE_DIR$" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="react-router-dom" level="application" />
+    <orderEntry type="library" name="react-router-navigation" level="application" />
+    <orderEntry type="library" name="@types/react-router-navigation" level="application" />
   </component>
 </module>

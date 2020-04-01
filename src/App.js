@@ -13,6 +13,8 @@ import userData from './Data/user.json';
 function App() {
     const [openAddPost, setOpenAddPost] = useState("none");
     const [logInStatus, setLogInStatus] = useState(false);
+    const [userConnect, setUserConnect] = useState("");
+
 
     let changeOpenPost = () => {
         console.log("changed calling");
@@ -29,6 +31,9 @@ function App() {
             console.log("boucle status number: " + i);
             if(userData[i].pseudo === username && userData[i].password === password){
                 console.log("if of status login valid !");
+                userData[i].connected = true;
+                setUserConnect(userData[i].pseudo);
+                console.log(userData[i]);
                 setLogInStatus(true);
             } else{
                 console.log("else of status login valid !");
@@ -44,7 +49,7 @@ function App() {
                     <AddPost newPost={openAddPost} funcOpenPost={changeOpenPost}/>
                     <Pubs/>
                     <FilterBar/>
-                    <UserPost/>
+                    <UserPost userConnect={userConnect}/>
                 </Route>
                 <Route exact path="/login" render={() => (
                     logInStatus ? (<Redirect to="/"/>) : (<LogIn loginStatus={logInStatus} funcStatusLogin={statusLogin}/>)

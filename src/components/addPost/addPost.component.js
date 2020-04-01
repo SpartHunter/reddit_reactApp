@@ -2,15 +2,26 @@ import React, {useState} from 'react';
 import Styled from 'styled-components';
 
 function AddPost({newPost, funcOpenPost}){
-    let listTypePost = ["Text", "Image", "Video"];
 
-    const [typePost, setTypePost] = useState("Text");
-    const [textPostArea, setTextPostArea] = useState("");
-    const [resumePostArea, setResumePostArea] = useState("");
     const [closeBtn, setCloseBtn] = useState("none");
 
-    let typePostSelected = (event) => {
-        setTypePost(event.target.value);
+    const [defaultTypePost, setDefaultTypePost ]= useState("Text");
+
+    const [postTitle, setPostTitle] = useState("");
+    const [textPostArea, setTextPostArea] = useState("");
+    const [resumePostArea, setResumePostArea] = useState("");
+    const [postImg, setPostImg] = useState("none");
+    const [postVideo, setPostVideo] = useState("none");
+
+
+
+    let optionValue = (event) => {
+        console.log("hello option clicked:", event.target.value);
+        return setDefaultTypePost(event.target.value)
+    };
+
+    let registerPostTitle = (event) => {
+        setPostTitle(event.target.value)
     };
 
     let registerPostArea = (event) => {
@@ -35,6 +46,24 @@ function AddPost({newPost, funcOpenPost}){
        }
     };
 
+    let registerPostImg = (event) => {
+        console.log("image input value changed");
+        setPostImg(event.target.files);
+        console.log(event.target.file);
+    };
+
+    let registerPostVideo = (event) => {
+        console.log("video input value changed");
+        setPostVideo(event.target.files);
+        console.log(event.target.file);
+    };
+
+    let registerPost = () => {
+        if (defaultTypePost === "Text"){
+
+        }
+    };
+
     return (
         <AddPostContent value={newPost}>
             <ButtonClose classeName="closedPost" value={closeBtn} onClick={closeBtnAct} onChange={closeBtnAct}>
@@ -51,27 +80,25 @@ function AddPost({newPost, funcOpenPost}){
             <AddPostForm>
                 <PostType>
                     <SelectLabel htmlfor="postType"> Choose type of new post :  </SelectLabel>
-                    <BoxSelect id="postType" value={typePost} onChange={typePostSelected}>
-                        {
-                            listTypePost.map((typePost, keyType) => {
-                                return <BoxOption key={keyType} value={typePost}> {typePost} </BoxOption>
-                            })
-                        }
+                    <BoxSelect id="postType">
+                        <option value="Text" onClick={optionValue} > Text </option>
+                        <option value="Image" onClick={optionValue}> Image </option>
+                        <option value="Video" onClick={optionValue}> Video </option>
                     </BoxSelect>
                 </PostType>
                 <BoxDiv>
-                    <BoxInput type="text" name="titlePost" placeholder="Title of post"/>
+                    <BoxInput type="text" name="titlePost" placeholder="Title of post" value={postTitle} onChange={registerPostTitle}/>
                 </BoxDiv>
                 <BoxDiv>
                     {
-                        typePost.includes('Text') ? (<BoxText name="textPost" value={textPostArea} placeholder="Enter Your Post ..." onChange={registerPostArea}> </BoxText>) :
-                            (typePost.includes('Image') ? (<BoxInput type="file" name="imagePost"/>) :
-                                (typePost.includes('Video') ? (<BoxInput type="file" name="videoPost"/>) : console.error("not defined typePost value !")))
+                        defaultTypePost.includes("Text") ? (<BoxText name="textPost" value={textPostArea} placeholder="Enter Your Post ..." onChange={registerPostArea}> </BoxText>) :
+                            (defaultTypePost.includes("Image") ? (<BoxInput type="file" name="imagePost" onChange={registerPostImg}/>) :
+                                (defaultTypePost.includes("Video") ? (<BoxInput type="file" name="videoPost" onChange={registerPostVideo}/>) : console.error("not defined typePost value !")))
                     }
                     <BoxComment name="commentPost" value={resumePostArea} placeholder="Enter Your comment's ..." onChange={registerCommentArea}> </BoxComment>
                 </BoxDiv>
                 <BoxDiv>
-                    <ButtonSubmit>Submit</ButtonSubmit>
+                    <ButtonSubmit onClick={registerPost}>Submit</ButtonSubmit>
                 </BoxDiv>
             </AddPostForm>
         </AddPostContent>
@@ -133,7 +160,7 @@ const BoxInput = Styled.input`
 `;
 
 const BoxText = Styled.textarea`
-    width: 328px;
+    width: 263px;
     height: 163px;
     max-width: 328px;
     max-height: 163px;
@@ -147,7 +174,7 @@ const BoxText = Styled.textarea`
 `;
 
 const BoxComment = Styled.textarea`
-    width: 328px;
+    width: 263px;
     height: 18px;
     max-width: 328px;
     max-height: 18px;
@@ -170,9 +197,6 @@ const BoxSelect = Styled.select`
     color: white;
 `;
 
-const BoxOption = Styled.option`
-    text-align: center;
-`;
 
 const ButtonSubmit = Styled.button`
     text-align: center;

@@ -5,6 +5,7 @@ import Search from '../search/search.component';
 import Profil from '../profil/profil.component'
 
 function Header({newPost, funcOpenPost, logInStatus, logo}){
+
     return (
         <HeaderNav>
             <NavContent>
@@ -22,6 +23,7 @@ const HeaderNav = Styled.div `
     flex-direction: row;
     justify-content: center;
     background-color: white;
+    align-items: center;
 `;
 const NavContent = Styled.div `
     width: 100%;
@@ -30,10 +32,12 @@ const NavContent = Styled.div `
     justify-content: space-between;
     position: fixed;
     background-color: white;
+    padding: 5px;
 `;
 
 const NavLogo = Styled.img `
-    width: 50px;
+    width: 39px;
+    height: 39px;
 `;
 
 export default Header;
